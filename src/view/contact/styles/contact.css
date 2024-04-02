@@ -1,0 +1,43 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--separator-color);
+  border-radius: 8px;
+
+  .contact {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--separator-color);
+    padding: 10px;
+    transition: background-color 0.2s;
+
+    .contact-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-name {
+      font-weight: 500;
+    }
+
+    .contact-email {
+      color: var(--text-secondary-color);
+    }
+
+    &:first-of-type {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+
+    &:last-of-type {
+      border: none;
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}

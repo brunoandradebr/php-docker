@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="<?= $_SESSION['theme'] ?>">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="<?= ASSETS . '/layout/styles/app.css' ?>">
+
+  <script type="module" defer src="<?= ASSETS . '/layout/js/app.js' ?>"></script>
+
+  <title>PHP App</title>
+</head>
+
+<body>
+
+  <!-- header -->
+  <header>
+    <div class="max-wrapper">
+
+      <div id="logo">App</div>
+
+      <nav>
+        <a href="/" <?= $_SERVER['REQUEST_URI'] === '/' ? 'class="--is-active"' : '' ?>>home</a>
+        <a href="/contact" <?= str_contains($_SERVER['REQUEST_URI'], 'contact') ? 'class="--is-active"' : '' ?>>contact</a>
+      </nav>
+
+      <a href="/theme/toggle" class="theme-toggle">
+        <?= $_SESSION['theme'] === 'dark' ? "🌞" : "🌜" ?>
+      </a>
+
+    </div>
+  </header>
+  <!-- /header -->
+
+  <main>
+    <div class="max-wrapper">
+      <!-- page -->

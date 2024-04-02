@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/assets/contact/styles/contact.css">
+
+<section>
+
+  <h1>
+    <?= $data->name ?>
+  </h1>
+
+  <span>
+    <?= $data->email ?>
+  </span>
+
+  <span>
+    created at
+    <?= date('d/m/Y H:m:i', strtotime($data->created_at)) ?>
+  </span>
+
+  <span>
+    updated at
+    <?= date('d/m/Y H:m:i', strtotime($data->updated_at)) ?>
+  </span>
+
+</section>

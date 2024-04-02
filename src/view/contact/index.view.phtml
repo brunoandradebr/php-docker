@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/assets/contact/styles/contact.css">
+
+<section>
+
+  <h1>Contacts</h1>
+
+  <span>contacts list</span>
+
+  <div class="contacts">
+    <? foreach ($data as $contact): ?>
+      <div class="contact">
+
+        <div class="contact-info">
+          <div class="contact-name">
+            <?= $contact->name ?>
+          </div>
+          <div class="contact-email">
+            <?= $contact->email ?>
+          </div>
+        </div>
+
+        <a role="button" href="contact/edit/<?= $contact->id ?>">Editar</a>
+      </div>
+    <? endforeach ?>
+  </div>
+
+</section>
