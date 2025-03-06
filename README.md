@@ -9,24 +9,59 @@
 
 <br/>
 
-This is a simple php monolithic environment ready to develop using mysql like in the old days 💀
+This is a simple php monolithic environment ready to develop using mariadb like in the old days 💀
 
-⚠️ This is not ready for production, just for fun. Environment variables like database password, host and others are hardcoded.
+⚠️ This is not ready for production, just for fun ⚠️
 
 <hr>
 
 ## How to run
 
-Clone this repository
-`git clone git@github.com:brunoandradebr/php-docker.git .`
+##### 1 - Clone this repository
 
-Start docker services
-`docker compose -f .docker/docker-compose.yml up -d`
+```bash
+git clone git@github.com:brunoandradebr/php-docker.git .
+```
 
-Navigate to
-`http://localhost`
+##### 2 - Create a .env file
 
-That's it!
+- 📂.database/
+- 📂.docker/
+- 📂 src/
+- 📄.env
+
+```bash
+DB_USER=admin; # don't use root name. will conflict with default root user
+DB_PASS=admin; # defines user and root password as same
+DB_NAME=app;
+```
+
+##### 3 - Start docker services
+
+```bash
+# script for docker compose up
+sh dev.sh
+```
+
+##### 4 - Run migrations to create tables
+
+```bash
+sh .database/migrate.sh
+```
+
+##### 5 - Run seeds to populate tables
+
+```bash
+sh .database/seed.sh
+```
+
+##### 6 - Open browser
+
+```bash
+http://localhost
+```
+
+## That's it!
 
 <hr>
 
@@ -56,4 +91,20 @@ That's it!
 
 ## Database
 
-database and tables are generated based on files inside **.database** folder. Sql files are executed in alphabetical order.
+Tables are generated based on files inside **.database** folder.
+
+📂 **.database/migrations**
+
+```bash
+  # For table creation. All sql files will be executed in alphabetical order.
+  1-create-table-contacts.sql
+  2-create-table-posts.sql
+```
+
+📂 **.database/seeds**
+
+```bash
+  # For table population. All sql files will be executed in alphabetical order.
+  1-populate-table-contacts.sql
+  2-populate-table-posts.sql
+```
